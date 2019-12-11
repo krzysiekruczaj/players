@@ -1,6 +1,6 @@
 public class LocalApplication {
     public static void main(String[] args) {
-        Server server = new Server();
+        Server server = new LocalServer();
         Player firstPlayer = new Player();
         Client firstClient = new LocalClient(server, firstPlayer);
 

@@ -1,38 +1,5 @@
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
+public interface Server {
+    void receiveMessage(String senderId, String receiverId, Message message);
 
-public class Server {
-    private Map<String, Client> clientsById = new ConcurrentHashMap<>();
-
-    public void receiveMessage(String senderId, String receiverId, Message message) {
-        if (shouldDisconnectSender(message)) {
-            Client sender = clientsById.remove(senderId);
-            if (sender != null) {
-                sender.disconnect();
-            }
-        }
-        sendMessage(senderId, receiverId, message.getMessage());
-    }
-
-    private void sendMessage(String senderId, String receiverId, String message) {
-        Client client = clientsById.get(receiverId);
-        if (client != null) {
-            client.receiveMessage(senderId, message);
-        }
-    }
-
-    private boolean shouldDisconnectSender(Message message) {
-        return message.getMessageCounter() >= 10;
-    }
-
-    public String registerClient(Client client) {
-        String clientId = generateClientId();
-        clientsById.put(clientId, client);
-        return clientId;
-    }
-
-    private String generateClientId() {
-        return UUID.randomUUID().toString();
-    }
+    String registerClient(Client client);
 }
