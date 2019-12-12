@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * Allow to send messages to messaging server (either network or local).
+ */
 public class LocalClient implements Client {
     private Server server;
     private Player player;

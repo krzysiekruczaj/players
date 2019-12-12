@@ -10,7 +10,9 @@ or
  
  `sh start.sh`
 
-# Have every player in a separate JAVA process.
+# Comments
+
+## Have every player in a separate JAVA process.
 
 Current architecture allows to extend application to support networking. Idea that would allow to do this would be as following:
 1. Networking solutions have been analyzed. Out of them I would choose either socket or RMI.

@@ -4,6 +4,9 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Local in-memory server implementation that handles messages send from clients.
+ */
 public class LocalServer implements Server {
     private Map<String, Client> clientsById = new ConcurrentHashMap<>();
 
