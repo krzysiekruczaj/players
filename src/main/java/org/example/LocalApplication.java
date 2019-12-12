@@ -1,3 +1,5 @@
+package org.example;
+
 public class LocalApplication {
     public static void main(String[] args) {
         Server server = new LocalServer();

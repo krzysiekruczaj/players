@@ -1,3 +1,5 @@
+package org.example;
+
 public class LocalClient implements Client {
     private Server server;
     private Player player;
@@ -17,7 +19,7 @@ public class LocalClient implements Client {
     @Override
     public void receiveMessage(String senderId, String message) {
         Message response = player.receiveMessage(message);
-        System.out.printf("Client [%s] received [%d] message: [%s]\n", clientId, response.getMessageCounter(), message);
+        System.out.printf("org.example.Client [%s] received [%d] message: [%s]\n", clientId, response.getMessageCounter(), message);
         sendResponse(senderId, response);
     }
 
